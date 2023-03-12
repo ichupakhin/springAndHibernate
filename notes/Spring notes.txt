@@ -1,0 +1,141 @@
+Spring Container = Application Context. For expamle, ClassPathXmlApplicationContext
+
+There are three ways to configure the spring container:
+- XML config file (legacy!)
+- Java Annotation
+- Java Source Code
+
+Spring Framework has two main tasks:
+- Inversion of Control (IoC)
+- Dependency Injection
+
+IoC - outsourcing the construction and managing of objects. For expamle, to an object factory
+
+Dependency injection - laden/holen der entsprechenden Objekte z.B. anhand von Namen. 
+Bsp.	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml"); //In XML wird nach dem entsprechenden Objekt gesucht und es wird erstellt.
+Dependeny = helper Objects. For Example: Fortune Service
+
+IoC und Dependency Injection are sometimes used as synonymous!?
+
+Spring types of injection:
+- constructor injection
+- setter injection
+- ...
+
+setter injection - <property name="bestAthlete" ref="..." /> spring will try to find a setter method with "public void" called setBestAthlete(...)
+
+Servlet - Bei Servlets handelt es sich um Java-Klassen, die serverseitig ausgeführt werden. Sie bearbeiten dabei die Anfragen von Clients und liefern entsprechend der Anfordeung dynamisch erzeugte HTML-Seiten als Antwort zurück.
+
+
+Spring beans scope: per Default the scope is "singelton" - means, one instance is shared.  context.getBean("myCoach", Coach.class) will always return the same instance of bean.
+
+method configuration: 
+	<bean ... init-method="methodName"
+	<bean ... destroy-method="methodName"
+Notice: The init and destroy methods can not accept any arguments. The methods should be no-arg. The return value can not be capture => void type is most common
+For "prototype" scoped beans, Spring does not call the destroy method.  Gasp!
+
+default name component if no other namy specified: tennisCoach - 
+@Component
+public class TennisCoach
+the same:
+@Component("tennisCoach")
+public class TennisCoach
+
+@Autowired - dependency injection in a class, that needs an another class. Three types:
+- Constructor injection
+- Setter injection
+- Field injection
+For Example, the name of the field show be listed in the config file like <bean id="sessionFactory"
+
+@Qualifier - additional to @Autowired (afterwards). Is to use if there are multiple implementaions of an interface. @Qualifier("happyFortuneService")
+
+
+@Scope - singelton, prototype,  
+
+Front controller = DispatcherServlet
+Controller contains Business Logic
+View Template mostly are JSP + JSTL
+
+Video 119 How to add JavaScript, CSS, etc. to a Spring Application
+
+//"path" search for a property "lastName" in the attribute(=class) "student"
+<form:form action="processForm" modelAttribute="student">
+	<form:input path="lastName"/> 
+	
+Video 153: @InitBinder is preproccesor. That means, the method with this annotation will pre-process all web requests coming into our Controller
+
+Video 166 Creating a Custom Java Annotation
+
+@interface - definies java annotation (doesn't mean, that this is the actual interface)
+
+Entity class is a java class that is mapped to a database table
+
+Video 199: how to see actual SQL Parameter Values instead of question marks '?'
+
+Video 205. FAQ: How to read Dates with Hibernate
+
+Video 209, 5.28 a picture of entity lifecycle states 
+
+@Transactional handling of transactions by Spring automatically!!!!! no need to begin, commit,...transactions in code manually!!!
+@Transactional can be put on to method
+
+@Repository marks a DAO Implementation class
+
+DAO - Data Accsess Objects 
+
+cross-cutting conserns = cross-cutting logic - logic that can be used on different places across entire system. For example, a logging class or security class
+
+Aspect - is a module of code, mostly a single class, for a cross-cutting concern (loggin, security)
+ 
+Advice - what action is taken and when it should be applied
+	Before advice see V.324 1:10
+	After finally advice see V.324 1:10
+	After returning advice
+	After throwing advice
+	Around advice
+
+Join Point - when to apply codu during program execution
+
+Pointcut - a predicate expression for where advice should be applied. Examples: 
+	@Before("execution(public void com.luv2code.aopdemo.dao.AccountDAO.addAccount())")
+	@Before("execution(public void addAccount())")
+	@Before("execution(public void add*())")
+	@Before("execution(public * add*())")
+	@Before("execution(* add*())")
+
+Weaving - connectiong aspects to target objects to create an advised object
+	Compile time, load time or run time
+	
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+Wörterbuch
+diligence - der Fleiß
+to beware of sth/so - sich behüten vor etw/j-m
+to expose sth/so - bloßstellen, aufdecken
+entirety - Gesamtheit
+in its entirety - in vollem Umfang
+to leverage sth - in Schwung bringen
+to populate sth. - etwas mit Daten befüllen
+to retain sth. - beibehalten, sichern
+Retention - Speicherung, Beibehaltung
+payload - Ladung
+to leverage sth. - etw. zu seinem Vorteil nutzen
+to truncate sth - etw kürzen, verstümmeln
+to retrieve - abrufen, zurückgewinnen
+to tangle - sich verwickeln
+cross-cutting conserns
+
+Mysql psw 123456
