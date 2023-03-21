@@ -108,6 +108,7 @@ Weaving - connectiong aspects to target objects to create an advised object
 	Compile time, load time or run time
 	
 
+Spring Boot Actuator - shows information about the app.
  
 
 
@@ -137,5 +138,7 @@ to truncate sth - etw kürzen, verstümmeln
 to retrieve - abrufen, zurückgewinnen
 to tangle - sich verwickeln
 cross-cutting conserns
+to curate (sth) - sorgfältig auswählen
+to prompt so. to do sth. - 		jmdn. dazu veranlassen, etw. zu tun
 
 Mysql psw 123456
