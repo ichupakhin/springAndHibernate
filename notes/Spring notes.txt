@@ -110,7 +110,9 @@ Weaving - connectiong aspects to target objects to create an advised object
 
 Spring Boot Actuator - shows information about the app.
  
-
+Spring Security:
+	Authentification - check user/password
+	Authorization - check if user has an authorized role
 
 
 
